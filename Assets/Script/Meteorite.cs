@@ -1,14 +1,19 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Barrier : Enemy
+public class Meteorite : Enemy
 {
-    public GameObject test;
+    public GameObject m_meteorite;
+    public int m_touchedUpperLimit;
 
     override public void StartTouching(float x, float y)
     {
         m_touchTime ++;
         SetFingerPosition(x, y);
+        if(m_touchTime >= m_touchedUpperLimit)
+        {
+            SetActive(false);
+        }
     }
 
     override public void Touching(float x, float y)
@@ -18,14 +23,16 @@ public class Barrier : Enemy
 
     override public void EndTouching(float x, float y)
     {
-        
+
     }
 
     override public void Move()
     {
-        if (m_touchTime == 0)
-        {
-            test.transform.position = new Vector3(test.transform.position.x + 0.01f, test.transform.position.y + 0.01f, test.transform.position.z);
-        }
+        
+    }
+
+    public void SetActive(bool active)
+    {
+        m_meteorite.SetActive(active);
     }
 }

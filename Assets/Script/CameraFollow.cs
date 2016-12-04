@@ -14,20 +14,20 @@ public class CameraFollow : MonoBehaviour {
 	public Vector3 maxCameraPos;
 	public Vector3 minCameraPos;
 
-	//public Vector3 offset;
+	public Vector3 offset;
 
 	void Start () 
 	{
-		//player = GameObject.FindGameObjectWithTag ("Game");
-		//offset = transform.position - player.transform.position;
-	}
+        //player = GameObject.FindGameObjectWithTag ("Game");
+        //offset = transform.position - player.transform.position;
+    }
 	
 
-	void LateUpdate () 
+	void FixedUpdate() 
 	{
 		float posX = Mathf.SmoothDamp (transform.position.x, player.transform.position.x, ref velocity.x, smoothTimeX);
 		float posY = Mathf.SmoothDamp (transform.position.y, player.transform.position.y, ref velocity.y, smoothTimeY);
-		transform.position = new Vector3 (posX, posY, transform.position.z);
+		transform.position = new Vector3 (posX + offset.x, posY + offset.y, transform.position.z);
 
 		if (bounds) 
 		{
