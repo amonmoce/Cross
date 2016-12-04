@@ -27,6 +27,6 @@ public class ProtectedObject : MonoBehaviour {
 
     void Move()
     {
-        m_protectedObject.transform.position = new Vector3(m_protectedObject.transform.position.x, m_protectedObject.transform.position.y + 0.01f, m_protectedObject.transform.position.z);
+        m_protectedObject.transform.position = new Vector3(m_protectedObject.transform.position.x, m_protectedObject.transform.position.y + 0.05f, m_protectedObject.transform.position.z);
     }
 }
